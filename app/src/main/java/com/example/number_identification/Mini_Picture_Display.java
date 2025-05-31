@@ -64,15 +64,14 @@ public class Mini_Picture_Display extends View {
 
     //ビットマップを読み込み手書き文字入力フィールドに変換する特殊な用途
     public void input_Bitmap(Bitmap bmp){
-        int W = bmp.getWidth();
-        int H = bmp.getHeight();
+        int W = 18;
+        int H = 18;
 
         for(int i = 0; i < H; i ++){
             for(int j = 0; j < W; j ++){
                 if(bmp.getPixel(j,i) == -16777216){
                     map[i][j] = 1;
-                }
-                if(bmp.getPixel(j,i) == -1){
+                }else{
                     map[i][j] = 0;
                 }
             }

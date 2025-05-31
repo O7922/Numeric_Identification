@@ -52,7 +52,11 @@ public class Filter_unit {
         text_Paint.setTextSize(30);
         text_Paint.setColor(Color.BLUE);
 
-        sample_meta = BitmapFactory.decodeResource(context0.getResources(),R.drawable.sample);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        sample_meta = BitmapFactory.decodeResource(context0.getResources(), R.drawable.sample, options);
+
+
         sample = Bitmap.createScaledBitmap(sample_meta,1800,180,true);
 
         input_data = Bitmap.createBitmap(sample,0,0,18,18);
@@ -78,6 +82,8 @@ public class Filter_unit {
 
     //このクラスのメイン処理。
     public void DO_Filter(Canvas canvas){
+
+
 
         if(stuZ < 10){
             //重み平均値入手
@@ -112,6 +118,7 @@ public class Filter_unit {
         if(getAVG_COUNT <= 1000){
             getAVG_COUNT ++;
         }
+
     }
 
     //フィルター諸々計算
